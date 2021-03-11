@@ -17,7 +17,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
-    "styled-component": "^2.8.0",
+    "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
@@ -25,6 +25,8 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13"
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.9.1"
   }
 }
