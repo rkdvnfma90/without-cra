@@ -65,6 +65,20 @@
 - `@babel/plugin-proposal-class-properties` : class에서 property를 사용할 수 있게 하는 플러그인이다. 이 플러그인이 없으면 class사용시 오류가 발생한다.
 - `@babel/plugin-syntax-dynamic-import` : 동적 import로 code splitting을 구현할 때 사용하는 플러그인. 만약 `Suspense, lazy나 loadable component`를 사용한다면 사용하지 않아도 된다.
 
+6. babel.config.js 설정
+
+- 앞서 설치한 babel을 프로젝트에 적용하기 위해 `babel.config.js`를 다음과 같이 작성한다.
+
+```javascript
+module.exports = {
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+  ],
+}
+```
+
 ## 참조
 
 <https://egg-programmer.tistory.com/> - `개발후라이`님의 블로그를 참조하여 작성하였습니다.
