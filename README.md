@@ -24,3 +24,31 @@
 
 - 이 파일은 npm으로 라이브러리를 설치하면 자동으로 생성된다.
 - 의존성 트리에 대한 정보를 가지고 있으므로 이 파일이 작성된 시점의 의존성 트리를 다시 생성할 수 있도록 한다. 📌그러므로 꼭 같이 커밋해줘야 한다!
+
+## 라이브러리 설치
+
+1. React 관련 라이브러리
+
+- `npm install react react-dom react-router-dom`
+- `react` : React UI를 위한 라이브러리
+- `react-dom` : React DOM 및 서버 렌더러에 대한 진입점 역할
+- `react-router-dom` : Single Page Application을 만들 때 사용
+
+2. 스타일 관련 라이브러리
+
+- `npm install styled-component styled-reset`
+- `styled-component` : React 컴포넌트처럼 jsx 안에서 스타일을 작성할 수 있게 해준다. 또 많이 사용하는 라이브러리는 `material-ui`가 있다.
+- `styled-reset` : 브라우저 마다 서로 다른 기본 스타일 차이를 없앨 때 사용하는 라이브러리
+
+3. Redux 관련 라이브러리
+
+- `npm install react-redux redux redux-thunk redux-devtools-extension`
+- `react-redux, redux` : 전역으로 상태관리하는 라이브러리. `react-redux`는 스토어 안에 데이터가 변경되었으면 해당 컴포넌트를 다시 렌더링 해준다.
+- `redux-thunk` : redux에서 사용하는 미들웨어 중 하나이다.
+- `미들웨어`란? 액션을 디스패치 했을 때 리듀서에서 액션을 처리하기 전에 원하는 작업을 실행할 수 있게 해준다.
+- `thunk`란? 파라미터를 받아 실행하고 또 다른 함수를 return하는 함수이다.
+- `redux-devtools-extensions` : redux를 사용할 때 액션과 현재 상태를 더 쉽게 볼 수 있게 하는 라이브러리.
+
+## 참조
+
+<https://egg-programmer.tistory.com/> - `개발후라이`님의 블로그를 참조하여 작성하였습니다.
