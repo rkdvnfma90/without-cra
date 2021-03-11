@@ -71,6 +71,16 @@
 
 - 앞서 설치한 babel을 프로젝트에 적용하기 위해 `babel.config.js`를 다음과 같이 작성한다.
 
+```javascript
+module.exports = {
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+  ],
+}
+```
+
 7. webpack 관련 라이브러리
 
 - `npm install -D webpack webpack-cli webpack-dev-server webpack-merge webpack-bundle-analyzer html-webpack-plugin dotenv-webpack clean-webpack-plugin`
@@ -82,16 +92,6 @@
 - `html-webpack-plugin` : 번들된 css, js같은 파일들은 html에 직접 추가해주어야 하는데 이것을 사용하면 자동으로 추가시켜 준다.
 - `dotenv-webpack` : Node 환경변수에 접근하기 위한 라이브러리
 - `clean-webpack-plugin` : 빌드 이전 결과물을 제거하는 플러그인이다. 빌드 결과물은 output 경로에 설정한 곳으로 폴더와 파일들이 모이게 되는데 이전 빌드내용이 삭제되지 않는 경우가 있기 때문에 사용함
-
-```javascript
-module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react'],
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-syntax-dynamic-import',
-  ],
-}
-```
 
 ## 참조
 
