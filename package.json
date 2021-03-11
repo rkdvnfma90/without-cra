@@ -1,0 +1,12 @@
+{
+  "name": "without-cra",
+  "version": "1.0.0",
+  "description": "CRA를 사용하지 않고 리액트 환경설정을 해보자.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
