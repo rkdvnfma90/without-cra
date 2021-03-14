@@ -29,20 +29,17 @@
 
 1. React 관련 라이브러리
 
-- `npm install react react-dom react-router-dom`
 - `react` : React UI를 위한 라이브러리
 - `react-dom` : React DOM 및 서버 렌더러에 대한 진입점 역할
 - `react-router-dom` : Single Page Application을 만들 때 사용
 
 2. 스타일 관련 라이브러리
 
-- `npm install styled-componentsc styled-reset`
 - `styled-components` : React 컴포넌트처럼 JSX 안에서 스타일을 작성할 수 있게 해준다. 또 많이 사용하는 라이브러리는 `material-ui`가 있다.
 - `styled-reset` : 브라우저 마다 서로 다른 기본 스타일 차이를 없앨 때 사용하는 라이브러리
 
 3. Redux 관련 라이브러리
 
-- `npm install react-redux redux redux-thunk redux-devtools-extension`
 - `react-redux, redux` : 전역으로 상태관리하는 라이브러리. `react-redux`는 스토어 안에 데이터가 변경되었으면 해당 컴포넌트를 다시 렌더링 해준다.
 - `redux-thunk` : redux에서 사용하는 미들웨어 중 하나이다.
 - `미들웨어`란? 액션을 디스패치 했을 때 리듀서에서 액션을 처리하기 전에 원하는 작업을 실행할 수 있게 해준다.
@@ -58,14 +55,13 @@
 
 5. babel 관련 라이브러리
 
-- `npm install -D @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-syntax-dynamic-import babel-loader core-js`
+- `npm install -D`
 - `@babel/core` : babel을 사용하기 위한 필수 패키지
 - `@babel/preset-env` : 범용적인 preset으로서 es6 이상 문법으로 작성된 코드를 es5 문법의 코드로 변환해 주는 모든 규칙을 정의한 preset이다.
 - `@babel/preset-react` : JSX로 작성된 코드를 `createElement` 함수를 이용한 코드로 변환해 주는 preset이다.
 - `@babel/plugin-proposal-class-properties` : class에서 property를 사용할 수 있게 하는 플러그인이다. 이 플러그인이 없으면 class사용시 오류가 발생한다.
 - `@babel/plugin-syntax-dynamic-import` : 동적 import로 code splitting을 구현할 때 사용하는 플러그인. 만약 `Suspense, lazy나 loadable component`를 사용한다면 사용하지 않아도 된다.
 - `babel-loader`: webpack이 모듈을 번들링할 때 babel을 사용하여 es6 이상의 코드를 es5 코드로 트랜스파일링 하도록 한다.
-- `core-js` : polyfill 라이브러리로서, 기존 `@babel-polyfill`에서 이미 사용하고 있던 라이브러리이다. 하지만 @babel-polyfill은 전역변수가 오염되는 문제가 있었기 때문에 core-js를 사용하여 그 문제를 방지한다. (babel 만으로 es6 내장메소드는 대체 불가능 하기 때문에 polyfill 사용, e.g. `Array.includes`)
 
 6. babel.config.js 설정
 
@@ -73,7 +69,15 @@
 
 ```javascript
 module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react'],
+  presets: [
+    '@babel/preset-react',
+    [
+      '@babel/preset-env',
+      {
+        targets: '> 0.25%, not dead',
+      },
+    ],
+  ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
@@ -83,15 +87,15 @@ module.exports = {
 
 7. webpack 관련 라이브러리
 
-- `npm install -D webpack webpack-cli webpack-dev-server webpack-merge webpack-bundle-analyzer html-webpack-plugin dotenv-webpack clean-webpack-plugin`
+- `npm install -D`
 - `webpack` : 오픈소스 자바스크립트 번들러이다. (번들: 소프트웨어 및 일부 하드웨어와 함께 동작하는 데 필요한 모든 것을 포함하는 package를 일컫는다.)
 - `webpack-cli` : 터미널에서 webpack 커맨드를 실행할 수 있게 해준다.
 - `webpack-dev-server` : 빠른 실시간 리로드 기능을 갖춘 개발 서버
 - `webpack-merge` : 여러개의 webpack 설정 파일을 하나로 병합해주는 라이브러리
-- `webpack-bundle-analyzer` : webpack을 이용하여 번들링되는 모듈들을 분석하여 보기좋게 시각적으로 표현해주는 모듈
-- `html-webpack-plugin` : 번들된 css, js같은 파일들은 html에 직접 추가해주어야 하는데 이것을 사용하면 자동으로 추가시켜 준다.
 - `dotenv-webpack` : Node 환경변수에 접근하기 위한 라이브러리
 - `clean-webpack-plugin` : 빌드 이전 결과물을 제거하는 플러그인이다. 빌드 결과물은 output 경로에 설정한 곳으로 폴더와 파일들이 모이게 되는데 이전 빌드내용이 삭제되지 않는 경우가 있기 때문에 사용함
+- `css-loader, style-loader` : CSS 파일을 자바스크립트로 변환해서 로딩
+- `url-loader` : 작은 이미지나 폰트파일을 문자열 형태로 변환하여 번들된 파일에 넣어주는 모듈
 
 ## 참조
 
