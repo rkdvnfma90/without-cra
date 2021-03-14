@@ -85,7 +85,32 @@ module.exports = {
 }
 ```
 
-7. webpack 관련 라이브러리
+7. babel polyfill 설정
+
+- polyfill이란 구형 브라우저에서 지원하지 않는 기능을 제공하는 코드를 말한다. (e.g. es6의 Promise 객체)
+- 기존에는 @babel/polyfill을 사용하였지만 deprecated 되었다.
+- `npm install -D @babel/plugin-transform-runtime`
+- `npm install @babel/runtime @babel/runtime-corejs3`
+- 아래와 같이 babel.config 파일에 @babel/plugin-transform-runtime 플러그인을 설정해 준다.
+
+```javascript
+plugins: [
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        absoluteRuntime: false,
+        corejs: 3,
+        helpers: true,
+        regenerator: true,
+        useESModules: false,
+      },
+    ],
+  ],
+```
+
+8. webpack 관련 라이브러리
 
 - `npm install -D`
 - `webpack` : 오픈소스 자바스크립트 번들러이다. (번들: 소프트웨어 및 일부 하드웨어와 함께 동작하는 데 필요한 모든 것을 포함하는 package를 일컫는다.)

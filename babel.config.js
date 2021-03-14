@@ -11,5 +11,15 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        absoluteRuntime: false,
+        corejs: 3,
+        helpers: true,
+        regenerator: true,
+        useESModules: false,
+      },
+    ],
   ],
 }
